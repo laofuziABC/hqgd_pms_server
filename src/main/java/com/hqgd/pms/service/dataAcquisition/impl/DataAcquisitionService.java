@@ -11,6 +11,8 @@ import com.hqgd.pms.domain.DataAcquisitionVo;
 import com.hqgd.pms.domain.QueryParametersVo;
 import com.hqgd.pms.service.dataAcquisition.IDataAcquisitionService;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class DataAcquisitionService implements IDataAcquisitionService{
 	@Autowired
@@ -19,6 +21,7 @@ public class DataAcquisitionService implements IDataAcquisitionService{
 	@Override
 	public List<DataAcquisitionVo> execGetRealTimeData(String equipmentId) {
 		List<DataAcquisitionVo> realTimeDateList = dataAcquisitionDao.getRealTimeDate(equipmentId);
+		log.info("设备实时数据"+realTimeDateList);
 		return realTimeDateList;
 	}
 	@Override
