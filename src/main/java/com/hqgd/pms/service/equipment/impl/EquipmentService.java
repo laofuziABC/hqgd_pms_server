@@ -7,13 +7,14 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hqgd.pms.dao.dataAcquisition.DataAcquisitionVoMapper;
 import com.hqgd.pms.dao.equipment.EquipmentInfoMapper;
 import com.hqgd.pms.dao.equipment.IEquipmentDao;
 import com.hqgd.pms.domain.EquipmentInfo;
 import com.hqgd.pms.service.equipment.IEquipmentService;
-
+@Service
 public class EquipmentService implements IEquipmentService {
 
 	@Autowired
