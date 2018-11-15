@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.hqgd.pms.service.login.ILoginService;
@@ -25,8 +24,7 @@ import com.hqgd.pms.service.user.IUserService;
  * @author 姚绒
  *
  */
-@Controller
-@Scope("request")
+@RestController
 @RequestMapping("/login")
 public class LoginController {
 
@@ -42,6 +40,7 @@ public class LoginController {
 	 * @throws IOException
 	 */
 	@PostMapping(value = "/login")
+	@ResponseBody
 	public String login(Model model, HttpServletResponse response, HttpServletRequest request) throws IOException {
 
 		Map<String, Object> result = loginService.login(request, response);
@@ -80,5 +79,10 @@ public class LoginController {
 		// 返回修改成功
 		return result;
 	}
+	
+	@RequestMapping("/test")
+    public String test(){ 
+        return "login2";
+    }
 
 }
